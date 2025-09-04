@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Tags from "./Tags";
 
-const AuthPage = () => {
+const SignUp = () => {
   const navigate = useNavigate();
   const [isSignup, setIsSignup] = useState(true);
 
@@ -53,7 +53,7 @@ const AuthPage = () => {
 
     setFormData({ name: "", email: "", password: "" });
 
-    setTimeout(() => navigate("/register"), 1000);
+    setTimeout(() => navigate("/"), 1000);
   };
 
   return (
@@ -161,4 +161,4 @@ const AuthPage = () => {
   );
 };
 
-export default AuthPage;
+export default SignUp;
