@@ -29,6 +29,8 @@ import Items from "./component/Items";
 // import Login from "./component/Login";
 import SignUp from "./component/SignUp";
 import Order from "./component/Order";
+import Face from "./component/Face";
+import Body from "./component/Body";
 function App() {
   return (
     <BrowserRouter>
@@ -45,23 +47,20 @@ function App() {
         <Route path="/knowing" element={<Knowing />} />
         <Route path="/email" element={<Email />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/order" element={<Order/>}/>
-  <Route
-  path="/cart"
-  element={
-    <Cart
-      name={
-        localStorage.getItem("currentUser")
-          ? JSON.parse(localStorage.getItem("currentUser")).name
-          : ""
-      }
-    />
-  }
-/>
-
-
-
-
+        <Route path="/order" element={<Order />} />
+        <Route path="/face" element={<Face />} />
+        <Route
+          path="/cart"
+          element={
+            <Cart
+              name={
+                localStorage.getItem("currentUser")
+                  ? JSON.parse(localStorage.getItem("currentUser")).name
+                  : ""
+              }
+            />
+          }
+        />
         <Route path="/addcart" element={<Addcart />} />
         <Route path="/finalcard" element={<Finalcard />} />
         <Route path="/lastcard" element={<Lastcard />} />
@@ -75,6 +74,7 @@ function App() {
         <Route path="/items" element={<Items />} />
         {/* <Route path="/login" element={<Login/>}></Route> */}
         <Route path="/signup" element={<SignUp />}></Route>
+        <Route path="/body" element={<Body/>}/>
       </Routes>
     </BrowserRouter>
   );

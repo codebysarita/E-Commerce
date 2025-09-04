@@ -1,7 +1,9 @@
 
 
 const product = [
+  
   {
+    title:"Skincare Essentials",
     id: 1,
     category: "skarfix",
     image:
@@ -46,6 +48,7 @@ const product = [
   },
 
   {
+    title:"Trending Products",
     id: 5,
     category: "second",
     image:
@@ -86,6 +89,7 @@ const product = [
   },
 
   {
+     title:"Shadow Suncream",
     id: 9,
     category: "third",
     image:
@@ -127,6 +131,7 @@ const product = [
   },
 
   {
+     title:"Pigmentation",
     id: 13,
     category: "fourth",
     image:
@@ -168,6 +173,7 @@ const product = [
   },
 
   {
+    title:"Acne",
     id: 17,
     category: "fifth",
     image:
@@ -208,4 +214,127 @@ const product = [
     rs: "₹499",
   },
 ];
+
+const Faceproduct =[
+  {
+    id: 21,
+    category: "six",
+    image:
+      "https://www.fixderma.com/cdn/shop/files/Face21CreamTube1.webp?v=1692612069",
+    name: "Salyzap Daily Face Cleanser",
+    url: "#",
+    reviews: "2 reviews",
+    rs: "₹499",
+  },
+   {
+    id: 22,
+    category: "six",
+    image:
+      "https://www.fixderma.com/cdn/shop/files/salyzap_face_wash_1.webp?v=1752725504",
+    name: "Salyzap Daily Face Cleanser",
+    url: "#",
+    reviews: "2 reviews",
+    rs: "₹499",
+  },
+   {
+    id: 23,
+    category: "six",
+    image:
+      "https://www.fixderma.com/cdn/shop/files/salyzap_face_wash_1.webp?v=1752725504",
+    name: "Salyzap Daily Face Cleanser",
+    url: "#",
+    reviews: "2 reviews",
+    rs: "₹499",
+  },
+   {
+    id: 24,
+    category: "six",
+    image:
+      "https://www.fixderma.com/cdn/shop/files/salyzap_face_wash_1.webp?v=1752725504",
+    name: "Salyzap Daily Face Cleanser",
+    url: "#",
+    reviews: "2 reviews",
+    rs: "₹499",
+  },
+   {
+    id: 25,
+    category: "six",
+    image:
+      "https://www.fixderma.com/cdn/shop/files/salyzap_face_wash_1.webp?v=1752725504",
+    name: "Salyzap Daily Face Cleanser",
+    url: "#",
+    reviews: "2 reviews",
+    rs: "₹499",
+  },
+  {
+    id: 26,
+    category: "six",
+    image:
+      "https://www.fixderma.com/cdn/shop/files/salyzap_face_wash_1.webp?v=1752725504",
+    name: "Salyzap Daily Face Cleanser",
+    url: "#",
+    reviews: "2 reviews",
+    rs: "₹499",
+  },
+  {
+    id: 27,
+    category: "six",
+    image:
+      "https://www.fixderma.com/cdn/shop/files/salyzap_face_wash_1.webp?v=1752725504",
+    name: "Salyzap Daily Face Cleanser",
+    url: "#",
+    reviews: "2 reviews",
+    rs: "₹499",
+  },
+  {
+    id: 28,
+    category: "six",
+    image:
+      "https://www.fixderma.com/cdn/shop/files/salyzap_face_wash_1.webp?v=1752725504",
+    name: "Salyzap Daily Face Cleanser",
+    url: "#",
+    reviews: "2 reviews",
+    rs: "₹499",
+  },
+  {
+    id: 29,
+    category: "six",
+    image:
+      "https://www.fixderma.com/cdn/shop/files/salyzap_face_wash_1.webp?v=1752725504",
+    name: "Salyzap Daily Face Cleanser",
+    url: "#",
+    reviews: "2 reviews",
+    rs: "₹499",
+  },
+  {
+    id: "30",
+    category: "six",
+    image:
+      "https://www.fixderma.com/cdn/shop/files/salyzap_face_wash_1.webp?v=1752725504",
+    name: "Salyzap Daily Face Cleanser",
+    url: "#",
+    reviews: "2 reviews",
+    rs: "₹499",
+  },
+    {
+    id: "31",
+    category: "six",
+    image:
+      "https://www.fixderma.com/cdn/shop/files/salyzap_face_wash_1.webp?v=1752725504",
+    name: "Salyzap Daily Face Cleanser",
+    url: "#",
+    reviews: "2 reviews",
+    rs: "₹499",
+  },
+    {
+    id: "32",
+    category: "six",
+    image:
+      "	https://www.fixderma.com/cdn/shop/files/skarfix-plus-benefits_940x.webp?v=1756379176",
+    name: "Salyzap Daily Face Cleanser",
+    url: "#",
+    reviews: "2 reviews",
+    rs: "₹499",
+  },
+]
 export default product;

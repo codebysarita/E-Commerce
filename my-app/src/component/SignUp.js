@@ -1,14 +1,17 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Tags from "./Tags";
 
-const Signup = () => {
-    const navigate = useNavigate();
+const AuthPage = () => {
+  const navigate = useNavigate();
+  const [isSignup, setIsSignup] = useState(true);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
   });
+
   const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
@@ -19,42 +22,44 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { name, email, password } = formData;
-
-    if (!name || !email || !password) {
-      setMessage("Please fill all fields");
-      return;
-    }
-
     const users = JSON.parse(localStorage.getItem("users") || "[]");
 
-    //   if (users.find(u => u.email === email)) {
-    //     setMessage("User already exists");
-    //     return;
-    //   }
-
-    users.push({ name, email, password });
-    localStorage.setItem("users", JSON.stringify(users));
-
-    localStorage.setItem("currentUser", JSON.stringify({ name, email }));
-
-    setMessage("Signup successful!");
+    if (isSignup) {
+      if (!name || !email || !password) {
+        setMessage("Please fill all fields");
+        return;
+      }
+      if (users.find((u) => u.email === email)) {
+        setMessage("User already exists. Please login.");
+        return;
+      }
+      users.push({ name, email, password });
+      localStorage.setItem("users", JSON.stringify(users));
+      localStorage.setItem("currentUser", JSON.stringify({ name, email }));
+      setMessage("Signup successful!");
+    } else {
+      if (!email || !password) {
+        setMessage("Please fill all fields");
+        return;
+      }
+      const user = users.find((u) => u.email === email && u.password === password);
+      if (!user) {
+        setMessage("Invalid email or password");
+        return;
+      }
+      localStorage.setItem("currentUser", JSON.stringify(user));
+      setMessage("Login successful!");
+    }
 
     setFormData({ name: "", email: "", password: "" });
 
-    //   localStorage.setItem("currentUser", JSON.stringify({ name, email }));
+    setTimeout(() => navigate("/register"), 1000);
   };
-  
 
   return (
     <>
       <Tags />
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          marginTop: "50px",
-        }}
-      >
+      <div style={{ display: "flex", justifyContent: "center", marginTop: "50px" }}>
         <form
           onSubmit={handleSubmit}
           style={{
@@ -62,10 +67,41 @@ const Signup = () => {
             padding: "20px",
             borderRadius: "8px",
             width: "500px",
-            height: "300px",
+            minHeight: "320px",
           }}
         >
-          <h3 style={{ textAlign: "center", color: "blue" }}>Signup</h3>
+          {/* Toggle */}
+          <div style={{ display: "flex", justifyContent: "center", marginBottom: "15px" }}>
+            <button
+              type="button"
+              onClick={() => setIsSignup(true)}
+              style={{
+                padding: "10px 20px",
+                marginRight: "10px",
+                background: isSignup ? "#1c48afff" : "#ccc",
+                color: "white",
+                border: "none",
+                borderRadius: "5px",
+              }}
+            >
+              Signup
+            </button>
+            <button
+              type="button"
+              onClick={() => setIsSignup(false)}
+              style={{
+                padding: "10px 20px",
+                background: !isSignup ? "#1c48afff" : "#ccc",
+                color: "white",
+                border: "none",
+                borderRadius: "5px",
+              }}
+            >
+              Login
+            </button>
+          </div>
+
+          <h3 style={{ textAlign: "center", color: "blue" }}>{isSignup ? "Signup" : "Login"}</h3>
 
           {message && (
             <p
@@ -78,14 +114,17 @@ const Signup = () => {
             </p>
           )}
 
-          <input
-            type="text"
-            name="name"
-            placeholder="Name"
-            value={formData.name}
-            onChange={handleChange}
-            style={{ width: "100%", padding: "8px", marginBottom: "10px" }}
-          />
+          {isSignup && (
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              value={formData.name}
+              onChange={handleChange}
+              style={{ width: "100%", padding: "8px", marginBottom: "10px" }}
+            />
+          )}
+
           <input
             type="email"
             name="email"
@@ -114,7 +153,7 @@ const Signup = () => {
               borderRadius: "5px",
             }}
           >
-            Signup
+            {isSignup ? "Signup" : "Login"}
           </button>
         </form>
       </div>
@@ -122,4 +161,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default AuthPage;

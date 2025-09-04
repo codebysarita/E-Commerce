@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import product from "./Finalcard";
+import Faceproduct from "./Finalcard";
 import { Link } from "react-router-dom";
+import Tags from "./Tags";
 
-function Lastcard() {
+function Hair() {
   const [cartCount, setcartCount] = useState(
     JSON.parse(localStorage.getItem("cartCount")) || 0
   );
@@ -39,10 +40,11 @@ function Lastcard() {
 
   return (
     <>
-      <h4 className="text-center mt-3  gap-5">All Products</h4>
+    <Tags/>
+      <h4 className="text-center mt-3  gap-5 " style={{color:"black"}}>Body Care Products Collection</h4>
 
       <div className="container d-flex flex-wrap justify-content-center gap-3 mt-4">
-        {product.map((key, index) => (
+        {Faceproduct.map((key, index) => (
           <>
             <div>
               <div
@@ -63,7 +65,7 @@ function Lastcard() {
                   <div className="card-body">
                     <h5 className="card-title">{key.name}</h5>
                     {/* <p className="card-text">{key.category}</p> */}
-                    <h6 className="mb-2">₹{key.rs}</h6>
+                    {/* <h6 className="mb-2">₹{key.rs}</h6> */}
                   </div>
                 </Link>
 
@@ -82,4 +84,4 @@ function Lastcard() {
   );
 }
 
-export default Lastcard;
+export default Hair;
