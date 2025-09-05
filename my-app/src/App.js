@@ -31,6 +31,7 @@ import SignUp from "./component/SignUp";
 import Order from "./component/Order";
 import Face from "./component/Face";
 import Body from "./component/Body";
+import Hair from "./component/Hair";
 function App() {
   return (
     <BrowserRouter>
@@ -75,6 +76,7 @@ function App() {
         {/* <Route path="/login" element={<Login/>}></Route> */}
         <Route path="/signup" element={<SignUp />}></Route>
         <Route path="/body" element={<Body/>}/>
+        <Route path="/hair" element={<Hair/>}/>
       </Routes>
     </BrowserRouter>
   );

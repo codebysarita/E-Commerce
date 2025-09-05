@@ -41,6 +41,18 @@ function Face() {
   return (
     <>
     <Tags/>
+        <div className="carousel-inner mt-5" style={{ width: "100%" }}>
+        <img
+          src="./image/cream.webp"
+          alt="Hair Care"
+          style={{
+            width: "90%",
+            alignItems: "center",
+            justifyContent: "center",
+            marginLeft: "5%",
+          }}
+        />
+      </div>
       <h4 className="text-center mt-3  gap-5">Face Products</h4>
 
       <div className="container d-flex flex-wrap justify-content-center gap-3 mt-4">

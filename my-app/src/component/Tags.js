@@ -19,11 +19,13 @@ function Tags() {
 
   return (
     <>
-      {/* Top Navbar */}
       <nav className="navbar-expand-lg bg-white border-bottom px-4 py-2">
         <div className="container-fluid">
           <div className="d-flex justify-content-between align-items-center px-3 py-2">
-            <a className="d-flex align-items-center text-decoration-none" href="/">
+            <a
+              className="d-flex align-items-center text-decoration-none"
+              href="/"
+            >
               <img
                 src="/image/logo.svg"
                 alt="Logo"
@@ -40,11 +42,13 @@ function Tags() {
 
               {!currentUser ? (
                 <Link to={`/signup`}>
-                  <button className="btn btn-info">Login / Signup</button>
+                  <button className="btn btn-info">Login </button>
                 </Link>
               ) : (
                 <>
-                  <button className="btn btn-outline-primary">{currentUser.name}</button>
+                  <button className="btn btn-info">
+                    {currentUser.name}
+                  </button>
                   <button className="btn btn-danger" onClick={handleLogout}>
                     Logout
                   </button>
@@ -67,7 +71,6 @@ function Tags() {
         </div>
       </nav>
 
-      {/* Bottom Navbar / Menu Items */}
       <nav className="navbar navbar-expand-lg bg-body-tertiary ms-5">
         <div className="container-fluid">
           <button
@@ -90,25 +93,24 @@ function Tags() {
                 </a>
               </li>
 
-              <li className="nav-item">
+              <li className="nav-item" style={{cursor:"pointer"}}>
                 <a className="nav-link" onClick={() => navigate("/face")}>
                   Face
                 </a>
               </li>
 
-              <li className="nav-item">
-                <a className="nav-link" onClick={() => navigate("/body")}>
+  <li className="nav-item" style={{cursor:"pointer"}}>
+                    <a className="nav-link" onClick={() => navigate("/body")}>
                   Body
                 </a>
               </li>
 
-              <li className="nav-item">
+               <li className="nav-item" style={{cursor:"pointer"}}>
                 <a className="nav-link" onClick={() => navigate("/hair")}>
                   Hair
                 </a>
               </li>
 
-              {/* Dropdown Example */}
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
@@ -160,48 +162,132 @@ function Tags() {
                 </a>
               </li>
 
-              {/* Category Dropdown */}
               <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                >
                   CATEGORY
                 </a>
                 <ul className="dropdown-menu">
-                  <li><a className="dropdown-item" href="#">Sunscreen Cream</a></li>
-                  <li><a className="dropdown-item" href="#">Face Serum</a></li>
-                  <li><a className="dropdown-item" href="#">Face Wash</a></li>
-                  <li><a className="dropdown-item" href="#">Hand Cream</a></li>
-                  <li><a className="dropdown-item" href="#">Baby Care</a></li>
-                  <li><a className="dropdown-item" href="#">Acne Care</a></li>
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Sunscreen Cream
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Face Serum
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Face Wash
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Hand Cream
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Baby Care
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Acne Care
+                    </a>
+                  </li>
                 </ul>
               </li>
 
-              {/* Concern Dropdown */}
               <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                >
                   CONCERN
                 </a>
                 <ul className="dropdown-menu">
-                  <li><a className="dropdown-item" href="#">Anti Ageing</a></li>
-                  <li><a className="dropdown-item" href="#">Hair Problem</a></li>
-                  <li><a className="dropdown-item" href="#">Dry Skin</a></li>
-                  <li><a className="dropdown-item" href="#">Oily Skin</a></li>
-                  <li><a className="dropdown-item" href="#">Acne</a></li>
-                  <li><a className="dropdown-item" href="#">Moms and Baby Care</a></li>
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Anti Ageing
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Hair Problem
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Dry Skin
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Oily Skin
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Acne
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Moms and Baby Care
+                    </a>
+                  </li>
                 </ul>
               </li>
 
-              {/* Ingredients Dropdown */}
               <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                >
                   Ingredients
                 </a>
                 <ul className="dropdown-menu">
-                  <li><a className="dropdown-item" href="#">Anti Ageing</a></li>
-                  <li><a className="dropdown-item" href="#">Hair Problem</a></li>
-                  <li><a className="dropdown-item" href="#">Dry Skin</a></li>
-                  <li><a className="dropdown-item" href="#">Oily Skin</a></li>
-                  <li><a className="dropdown-item" href="#">Acne</a></li>
-                  <li><a className="dropdown-item" href="#">Moms and Baby Care</a></li>
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Anti Ageing
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Hair Problem
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Dry Skin
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Oily Skin
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Acne
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Moms and Baby Care
+                    </a>
+                  </li>
                 </ul>
               </li>
 

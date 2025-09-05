@@ -70,7 +70,7 @@ const SignUp = () => {
             minHeight: "320px",
           }}
         >
-          {/* Toggle */}
+          
           <div style={{ display: "flex", justifyContent: "center", marginBottom: "15px" }}>
             <button
               type="button"

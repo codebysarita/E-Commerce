@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Faceproduct from "./Finalcard";
 import { Link } from "react-router-dom";
 import Tags from "./Tags";
+// import hairproduct from "./image/hair_care_image.avif";
 
 function Hair() {
   const [cartCount, setcartCount] = useState(
@@ -40,8 +41,24 @@ function Hair() {
 
   return (
     <>
-    <Tags/>
-      <h4 className="text-center mt-3  gap-5 " style={{color:"black"}}>Body Care Products Collection</h4>
+      <Tags />
+
+      <div className="carousel-inner mt-5" style={{ width: "100%" }}>
+        <img
+          src="./image/hair_care_image.avif"
+          alt="Hair Care"
+          style={{
+            width: "90%",
+            alignItems: "center",
+            justifyContent: "center",
+            marginLeft: "5%",
+          }}
+        />
+      </div>
+
+      <h4 className="text-center mt-3  gap-5 " style={{ color: "black" }}>
+        Hair Care Products Collection
+      </h4>
 
       <div className="container d-flex flex-wrap justify-content-center gap-3 mt-4">
         {Faceproduct.map((key, index) => (

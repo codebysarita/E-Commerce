@@ -41,6 +41,18 @@ function Body() {
   return (
     <>
     <Tags/>
+     <div className="carousel-inner mt-5" style={{ width: "100%" }}>
+        <img
+          src="	https://www.fixderma.com/cdn/shop/collections/Body_Wash_1920x.webp?v=1724311742"
+          alt="Hair Care"
+          style={{
+            width: "90%",
+            alignItems: "center",
+            justifyContent: "center",
+            marginLeft: "5%",
+          }}
+        />
+      </div>
       <h4 className="text-center mt-3  gap-5 " style={{color:"black"}}>Body Care Products Collection</h4>
 
       <div className="container d-flex flex-wrap justify-content-center gap-3 mt-4">
