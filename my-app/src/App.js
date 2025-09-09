@@ -32,6 +32,10 @@ import Order from "./component/Order";
 import Face from "./component/Face";
 import Body from "./component/Body";
 import Hair from "./component/Hair";
+import AdminPanel from "./component/AdminPanel";
+import AdminDashboard from "./AdminDashboard";
+import ProductManagement from "./ProductManagement";
+import OrderManagement from "./OrderManagement";
 function App() {
   return (
     <BrowserRouter>
@@ -75,8 +79,12 @@ function App() {
         <Route path="/items" element={<Items />} />
         {/* <Route path="/login" element={<Login/>}></Route> */}
         <Route path="/signup" element={<SignUp />}></Route>
-        <Route path="/body" element={<Body/>}/>
-        <Route path="/hair" element={<Hair/>}/>
+        <Route path="/body" element={<Body />} />
+        <Route path="/hair" element={<Hair />} />
+        <Route path="/productmanagement" element={<ProductManagement />} />
+        <Route path="/adminpanel" element={<AdminPanel />} />
+        <Route path="/admindashboard" element={<AdminDashboard />} />
+        <Route path="/ordermanagement" element={<OrderManagement />} />
       </Routes>
     </BrowserRouter>
   );

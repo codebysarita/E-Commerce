@@ -66,7 +66,7 @@ function Lastcard() {
                 </Link>
 
                 <button
-                  className="btn btn-info w-100"
+                  className="btn btn-warning w-100"
                   onClick={() => setcart(key)}
                 >
                   Add to Cart

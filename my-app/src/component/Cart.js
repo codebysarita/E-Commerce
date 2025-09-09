@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Tags from "./Tags";
-import { useNavigate } from "react-router-dom";   
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   useEffect(() => {
     const storedCart = localStorage.getItem("cartItems");
@@ -23,6 +23,7 @@ const Cart = () => {
     }
   }, []);
 
+
   const add = (item) => {
     setCartItems((prev) => {
       const updated = (() => {
@@ -30,43 +31,45 @@ const Cart = () => {
         if (existing) {
           return prev.map((i) =>
             i.id === item.id
-              ? { ...i, quntity: (parseInt(i.quntity) || 1) + 1 }
+              ? { ...i, quantity: (i.quantity ? parseInt(i.quantity) : 0) + 1 }
               : i
           );
         } else {
-          return [...prev, { ...item, quntity: 1 }];
+          return [...prev, { ...item, quantity: 1 }];
         }
       })();
 
       localStorage.setItem("cartItems", JSON.stringify(updated));
       localStorage.setItem(
         "cartCount",
-        updated.reduce((acc, i) => acc + (parseInt(i.quntity) || 0), 0)
+        updated.reduce((acc, i) => acc + (i.quantity ? parseInt(i.quantity) : 0), 0)
       );
 
       return updated;
     });
   };
 
+  
   const sub = (item) => {
     setCartItems((prev) => {
       const updated = prev
         .map((i) =>
           i.id === item.id
-            ? { ...i, quntity: (parseInt(i.quntity) || 0) - 1 }
+            ? { ...i, quantity: (i.quantity ? parseInt(i.quantity) : 1) - 1 }
             : i
         )
-        .filter((i) => i.quntity > 0);
+        .filter((i) => i.quantity > 0);
 
       localStorage.setItem("cartItems", JSON.stringify(updated));
       localStorage.setItem(
         "cartCount",
-        updated.reduce((acc, i) => acc + (parseInt(i.quntity) || 0), 0)
+        updated.reduce((acc, i) => acc + (i.quantity ? parseInt(i.quantity) : 0), 0)
       );
 
       return updated;
     });
   };
+
 
   const removeFromCart = (id) => {
     const updatedCart = cartItems.filter((item) => item.id !== id);
@@ -74,29 +77,31 @@ const Cart = () => {
     localStorage.setItem("cartItems", JSON.stringify(updatedCart));
     localStorage.setItem(
       "cartCount",
-      updatedCart.reduce((acc, i) => acc + (parseInt(i.quntity) || 0), 0)
+      updatedCart.reduce((acc, i) => acc + (i.quantity ? parseInt(i.quantity) : 0), 0)
     );
     alert("Item removed from cart");
   };
 
   const total = cartItems.reduce((sum, item) => {
     const price = parseFloat((item.rs || "1").replace(/[^\d.]/g, ""));
-    const qty = parseInt(item.quntity) || 1;
+    const qty = item.quantity ? parseInt(item.quantity) : 1;
     return sum + price * qty;
   }, 0);
 
   const userString = localStorage.getItem("currentUser");
   const user = userString ? JSON.parse(userString) : null;
 
+  
   function goToConfirmPage() {
-    localStorage.setItem("savedOrder", JSON.stringify(cartItems)); 
-    navigate("/order"); 
+    localStorage.setItem("savedOrder", JSON.stringify(cartItems));
+    navigate("/order");
   }
 
   return (
     <>
+
       <Tags
-        cart={cartItems.reduce((acc, i) => acc + (parseInt(i.quntity) || 1), 1)}
+        cart={cartItems.reduce((acc, i) => acc + (i.quantity ? parseInt(i.quantity) : 0), 0)}
       />
 
       <div
@@ -135,7 +140,7 @@ const Cart = () => {
                     +
                   </button>
                   <button className="btn btn-warning">
-                    {parseInt(item.quntity) || 0}
+                    {item.quantity ? parseInt(item.quantity) : 1}
                   </button>
                   <button className="btn btn-warning" onClick={() => sub(item)}>
                     -
@@ -152,7 +157,7 @@ const Cart = () => {
           </div>
         )}
 
-        <div className="d-flex align-items-center justify-content-center">
+        <div className="d-flex align-items-center justify-content-center mt-4">
           <div className="mx-3 text-center">
             <h5>Total Price: ₹{total.toFixed(2)}</h5>
           </div>
